@@ -1,0 +1,25 @@
+{
+    "name": "animpage-be",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node http/api"
+    },
+    "dependencies": {
+        "lodash": "^4.17.10",
+        "swagger-express-mw": "*",
+        "winston": "*",
+        "moment": "*",
+        "express": "*",
+        "tcp-port-used": "*",
+        "mysql2": "*",
+        "sequelize": "*",
+        "jsonwebtoken": "*",
+        "express-jwt": "*",
+        "bcrypt-nodejs": "*",
+        "errorhandler": "*",
+        "method-override": "*",
+        "compression": "*"
+    },
+    "devDependencies": {}
+}

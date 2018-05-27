@@ -1,0 +1,28 @@
+{
+    "url": "https://animpage.kalaus.ru",
+    "view": {
+        "cache": true
+    },
+    "debug": false,
+    "express": {
+        "compression": true
+    },
+    "cors": {
+        "AccessControlAllowOrigin": "*",
+        "AccessControlAllowMethods": "GET,PUT,POST,DELETE,OPTIONS",
+        "AccessControlAllowHeaders": "Origin, X-Requested-With, Cache-Control, Content-Type, Accept, Authorization",
+        "AccessControlAllowCredentials": true,
+        "AccessControlMaxAge": 3600
+    },
+    "http": {
+        "api": {
+            "pool": [7410]
+        }
+    },
+    "database": {
+        "sync": false,
+        "dialect": "mysql",
+        "host": "localhost",
+        "port": 3306
+    }
+}

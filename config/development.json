@@ -1,0 +1,31 @@
+{
+    "url": "https://animpage-dev.kalaus.ru",
+    "view": {
+        "cache": false
+    },
+    "debug": true,
+    "express": {
+        "compression": false
+    },
+    "cors": {
+        "AccessControlAllowOrigin": "*",
+        "AccessControlAllowMethods": "GET,PUT,POST,DELETE,OPTIONS",
+        "AccessControlAllowHeaders": "Origin, X-Requested-With, Cache-Control, Content-Type, Accept, Authorization",
+        "AccessControlAllowCredentials": true,
+        "AccessControlMaxAge": 3600
+    },
+    "http": {
+        "api": {
+            "pool": [7400]
+        }
+    },
+    "database": {
+        "sync": true,
+        "dialect": "mysql",
+        "host": "localhost",
+        "port": 3306,
+        "user": "animpage_dev",
+        "password": "password",
+        "db": "animpage_dev"
+    }
+}
