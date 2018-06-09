@@ -40,7 +40,7 @@
         "secret": "b3d40bc08906796a535c25803f511f9b"
     },
     "cookie": {
-        "domain": "animpage-dev.kalaus.ru",
+        "domain": "localhost",
         "lifetime": 2592000
     },
     "oauth": {

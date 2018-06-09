@@ -36,11 +36,11 @@
         "secret": "b3d40bc08906796a535c25803f511f9b"
     },
     "cookie": {
-        "domain": "animpage-dev.kalaus.ru",
+        "domain": "animpage.kalaus.ru",
         "lifetime": 2592000
     },
     "oauth": {
-        "secret": "O*Tv564^e7",
+        "secret": "O*Tv56f4^e7",
         "expire": 2592000,
         "state": "animpage_auth",
         "realm": "animpage",
