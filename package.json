@@ -19,7 +19,12 @@
         "bcrypt-nodejs": "*",
         "errorhandler": "*",
         "method-override": "*",
-        "compression": "*"
+        "compression": "*",
+        "morgan": "*",
+        "pug": "*",
+        "swagger-ui": "*",
+        "shopify-node-api": "*",
+        "async": "*"
     },
     "devDependencies": {}
 }

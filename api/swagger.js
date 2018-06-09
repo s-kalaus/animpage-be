@@ -11,7 +11,7 @@ module.exports = function () {
         swagger: '2.0',
         info: {
             version: '1.0.0',
-            title: 'Pixc API'
+            title: 'Animpage API'
         },
         host: urlParser.parse(config.url).host,
         basePath: '/v1',
@@ -24,22 +24,30 @@ module.exports = function () {
         ],
         produces: [
             'application/json'
-        ]/*,
+        ],
         securityDefinitions: {
-            pixc_auth: {
+            animpage_auth: {
                 type: 'oauth2',
                 authorizationUrl: config.url + '/v1/oauth',
                 flow: 'implicit',
                 scopes: {
-                    'mails:send': 'Send email'
+                    'page:read': 'Read page',
+                    'page:write': 'Write page',
+                    'payment:write': 'Write payment'
                 }
             }
-        }*/,
+        },
         tags: [
-            {name: 'auth'}
+            {name: 'auth'},
+            {name: 'page'},
+            {name: 'asset'},
+            {name: 'payment'}
         ],
         paths: _.extend({},
-            require('./schemas/auth')
+            require('./schemas/auth'),
+            require('./schemas/page'),
+            require('./schemas/asset'),
+            require('./schemas/payment')
         ),
         definitions: {
             ErrorResponse: {
@@ -68,7 +76,7 @@ module.exports = function () {
                         type: 'boolean'
                     }
                 }
-            }/*,
+            },
             ListResponse: {
                 required: [
                     'success',
@@ -85,7 +93,7 @@ module.exports = function () {
                         }
                     }
                 }
-            }*/
+            }
         }
     };
 };

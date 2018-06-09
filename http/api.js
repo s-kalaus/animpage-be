@@ -1,9 +1,10 @@
 'use strict';
 
-/* global config */
+/* global config, __dirname */
 
 const _ = require('lodash');
 const qs = require('querystring');
+const fs = require('fs');
 const SwaggerExpress = require('swagger-express-mw');
 
 require('../lib/common')();
@@ -43,6 +44,7 @@ httpservice.init({}, function (err, done) {
                     onError: 'error_handler'
                 },
                 'cors',
+                'swagger_params_parser',
                 'swagger_security',
                 '_swagger_validate',
                 'express_compatibility',
@@ -50,15 +52,15 @@ httpservice.init({}, function (err, done) {
             ]
         },
         swaggerSecurityHandlers: {
-            pixc_auth: function (req, authOrSecDef, scopesOrApiKey, callback) {
+            animpage_auth: function (req, authOrSecDef, scopesOrApiKey, callback) {
 
                 return AuthService.oauthAuthorize({
                     req: req,
                     scope: scopesOrApiKey
                 }, function (result) {
 
-                    if (!result || !result.success) {
-                        return callback({success: false, message: result && result.message ? result.message : 'Unknown error'});
+                    if (!result.success) {
+                        return callback({success: false, message: result.message});
                     }
 
                     return callback();
