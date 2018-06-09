@@ -5,7 +5,12 @@
     },
     "debug": true,
     "express": {
+        "logger": true,
         "compression": false
+    },
+    "subscription": {
+        "price": 5.0,
+        "test": true
     },
     "cors": {
         "AccessControlAllowOrigin": "*",
@@ -26,6 +31,25 @@
         "port": 3306,
         "user": "animpage_test",
         "password": "password",
-        "db": "animpage_test"
+        "db": "animpage_test",
+        "loggingToConsole": true
+    },
+    "shopify": {
+        "name": "animpage",
+        "key": "ac0fa83cc95401afb27a0c5d44dc473f",
+        "secret": "b3d40bc08906796a535c25803f511f9b"
+    },
+    "cookie": {
+        "domain": "animpage-dev.kalaus.ru",
+        "lifetime": 2592000
+    },
+    "oauth": {
+        "secret": "O2342dy^e7",
+        "expire": 2592000,
+        "state": "animpage_auth",
+        "realm": "animpage",
+        "scope": {
+            "customer": ["page:read", "page:write", "payment:write"]
+        }
     }
 }
