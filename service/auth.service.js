@@ -591,7 +591,7 @@ var AuthService = {
         let shopify = null;
         let mainThemeId = null;
         let mainThemeContent = null;
-        let uninstallWebhookId = null;
+        // let uninstallWebhookId = null;
 
         return async.series([
             (next) => {
@@ -615,44 +615,44 @@ var AuthService = {
                     return next({success: false, message: 'DB Error', original: err});
                 });
             },
-            (next) => {
-
-                return shopify.get('/admin/webhooks.json', {
-                    topic: 'app/uninstalled',
-                    address: config.url + '/v1/auth/webhook',
-                    format: 'json'
-                }, (err, data) => {
-
-                    if (err) {
-                        return next({success: false, message: 'Error Fetching Webhooks', original: err});
-                    }
-
-                    uninstallWebhookId = data.webhooks.length ? data.webhooks[0].id : null;
-
-                    return next();
-                });
-            },
-            (next) => {
-
-                if (uninstallWebhookId) {
-                    return next();
-                }
-
-                return shopify.post('/admin/webhooks.json', {
-                    webhook: {
-                        topic: 'app/uninstalled',
-                        address: config.url + '/v1/auth/webhook',
-                        format: 'json'
-                    }
-                }, (err) => {
-
-                    if (err) {
-                        return next({success: false, message: 'Error Adding Uninstall Webhook', original: err});
-                    }
-
-                    return next();
-                });
-            },
+//            (next) => {
+//
+//                return shopify.get('/admin/webhooks.json', {
+//                    topic: 'app/uninstalled',
+//                    address: config.url + '/v1/auth/webhook',
+//                    format: 'json'
+//                }, (err, data) => {
+//
+//                    if (err) {
+//                        return next({success: false, message: 'Error Fetching Webhooks', original: err});
+//                    }
+//
+//                    uninstallWebhookId = data.webhooks.length ? data.webhooks[0].id : null;
+//
+//                    return next();
+//                });
+//            },
+//            (next) => {
+//
+//                if (uninstallWebhookId) {
+//                    return next();
+//                }
+//
+//                return shopify.post('/admin/webhooks.json', {
+//                    webhook: {
+//                        topic: 'app/uninstalled',
+//                        address: config.url + '/v1/auth/webhook',
+//                        format: 'json'
+//                    }
+//                }, (err) => {
+//
+//                    if (err) {
+//                        return next({success: false, message: 'Error Adding Uninstall Webhook', original: err});
+//                    }
+//
+//                    return next();
+//                });
+//            },
             (next) => {
 
                 return shopify.get('/admin/themes.json', (err, data) => {
