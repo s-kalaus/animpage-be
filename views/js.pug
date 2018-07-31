@@ -1,24 +1,32 @@
 - if (inEffect || outEffect)
     .
         (function () {
-        if (typeof window.$ === 'undefined') { return; }
-        var html = $('html');
+            var html = document.documentElement;
 
     - if (inEffect)
         .
-            html.css('animation-duration', '#{inDuration/1000}s').addClass('animated #{inEffect}');
-            setTimeout(function () { html.removeClass('animated #{inEffect}') }, #{inDuration});
+            html.classList.add('animated', '#{inEffect}');
+            html.style.animationDuration = '#{inDuration/1000}s';
+            setTimeout(function () { html.classList.remove('animated', '#{inEffect}') }, #{inDuration});
+
+    .
+        function animpageInit() {
+        if (typeof window.$ === 'undefined') { return setTimeout(animpageInit, 50); }
 
     - if (outEffect)
         .
-            $(function () {
-                html.on('click', 'a', function () {
-                    var href = $(this).attr('href');
-                    if (!href || href.match(/^(javascript|tel)\:/i) || href.match(/^\#/i)) { return true; }
-                    html.css('animation-duration', '#{outDuration/1000}s').addClass('animated #{outEffect}');
-                    setTimeout(function () { window.location = href; }, #{outDuration});
-                    return false;
+                $(function () {
+                    $(html).on('click', 'a', function () {
+                        var href = $(this).attr('href');
+                        if (!href || href.match(/^(javascript|tel)\:/i) || href.match(/^\#/i)) { return true; }
+                        html.classList.add('animated', '#{outEffect}');
+                        html.style.animationDuration = '#{outDuration/1000}s';
+                        setTimeout(function () { window.location = href; }, #{outDuration});
+                        return false;
+                    });
                 });
-            });
+            }
+            animpageInit();
+
     .
         })();
