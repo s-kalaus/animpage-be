@@ -35,9 +35,9 @@
         "loggingToConsole": true
     },
     "shopify": {
-        "name": "animpage-dev",
-        "key": "e40367c33bc7984063d72e95afb82740",
-        "secret": "896ee67c75098d7566e0ae8ef4dc96c8"
+        "name": "animpage",
+        "key": "ac0fa83cc95401afb27a0c5d44dc473f",
+        "secret": "b3d40bc08906796a535c25803f511f9b"
     },
     "cookie": {
         "domain": "localhost",
